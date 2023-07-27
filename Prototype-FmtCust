@@ -1,0 +1,7 @@
+D FmtCust         PR
+     D  Name                        100A
+     D  Address                     100A
+
+
+// Prototype for procedure FmtCust  (Note the PR on definition
+      // specification.)  It has two output parameters.

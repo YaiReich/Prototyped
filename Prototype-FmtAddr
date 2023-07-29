@@ -1,0 +1,9 @@
+     //---------------------------------------------------------
+      // FmtAddr - procedure to produce an address in the form
+      //---------------------------------------------------------
+     D FmtAddr         PR           100A     VARYING
+     D   streetNum                   10I 0   CONST
+     D   streetName                  50A     CONST
+     D   city                        20A     CONST
+     D   state                       15A     CONST
+     D   zip                          5P 0   CONST

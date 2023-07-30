@@ -1,0 +1,35 @@
+ //--------------------------------------------------------------
+ // InArrears
+ //
+ // Parameters: (none)
+ // Globals:    DUEDATE, AMOUNT, CurDate
+ //
+ // Returns:   '1' if the customer is in arrears
+ //--------------------------------------------------------------
+
+P InArrears       B                      1 
+D InArrears       PI             1A      2 
+ // Local declarations
+
+D DaysLate        S             10I 0    3 
+D DateDue         S               D      3 
+ // Body of procedure
+
+ /free
+     DateDue = %date (DUEDATE: *ISO);
+     DaysLate = %diff (CurDate: DateDue: *d);
+
+     // The data in the input file comes from another type
+     // of computer, and the AMOUNTC field is a character
+     // string containing the numeric value.  This string
+     // must be converted to the numeric AMOUNT field
+     // for printing.
+
+
+     AMOUNT = %dec(AMOUNTC : 31 : 9);
+     if DaysLate > 60 AND AMOUNT > 100.00;
+        return '1';                      4 
+     endif;
+     return '0';                         4   5 
+ /end-free
+P InArrears       E                      1 
